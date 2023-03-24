@@ -132,17 +132,15 @@ void image_pixelate(std::string filename, int image[MAX_H][MAX_W])
   readImage(filename, image, h, w);
 
   //skips by 2
-  for(int row = 0; row < h; row++)
+  for(int row = 0; row < h; row+=2)
   {
-    for(int col = 0; col < w; col++)
+    for(int col = 0; col < w; col+=2)
       {
         average = (image[row][col]+image[row][col+1] + image[row+1][col] + image[row+1][col+1]) / 4; // taking the average of 2x2
         imageFin[row][col] = average;
         imageFin[row][col+1] = average;
         imageFin[row+1][col] = average;
         imageFin[row+1][col+1] = average;
-        row++;
-        col++;
       }
   }
   writeImage("taskF.pgm", imageFin, h, w);
