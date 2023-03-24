@@ -2,7 +2,7 @@ main: main.o funcs.o imageio.o
 	g++ -o main -std=c++11 main.o funcs.o imageio.o
 
 
-main.o: main.cpp funcs.o funcs.h 
+main.o: main.cpp funcs.cpp funcs.h 
 	g++ -c -std=c++11 main.cpp funcs.cpp
  
 
