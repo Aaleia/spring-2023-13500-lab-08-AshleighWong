@@ -7,6 +7,8 @@
 #include "funcs.h"
 #include "imageio.h"
 
+const int MAX_VALUE = 255;
+
 // TASK A -- invert the colors (works)
 
 void invert_color(std::string filename, int imgage[MAX_H][MAX_W]) 
@@ -19,7 +21,7 @@ void invert_color(std::string filename, int imgage[MAX_H][MAX_W])
   {
     for (int col = 0; col < w; col++) 
     {
-      imageFin[row][col] = (255 - imgage[row][col]);
+      imageFin[row][col] = (MAX_VALUE - imgage[row][col]);
     }
   }
   writeImage("taskA.pgm", imageFin, h, w);
@@ -39,7 +41,7 @@ void invert_half(std::string filename, int image[MAX_H][MAX_W])
     {
       if (col >= w / 2) 
       {
-        imageFin[row][col] = (255 - image[row][col]);
+        imageFin[row][col] = (MAX_VALUE - image[row][col]);
       } 
       else 
       {
@@ -65,7 +67,7 @@ void white_box(std::string filename, int image[MAX_H][MAX_W])
       if (col > (w / 4) && col < (3 * w / 4) && row > (h / 4) &&
           row < (3 * h / 4))
       {
-        imageFin[row][col] = 255; 
+        imageFin[row][col] = MAX_VALUE; 
       }
       else
       {
@@ -90,7 +92,7 @@ void image_frame(std::string filename, int image[MAX_H][MAX_W])
     {
       if (col>=(w/4) && col<=(3*w/4) && row>=(h/4) && row<=(3*h/4) && (col == w/4 || col == 3*w/4 || row == h/4 || row == 3*h/4)) 
       {
-        imageFin[row][col] = 255; 
+        imageFin[row][col] = MAX_VALUE; 
       }
       else
       {
